@@ -1,0 +1,19 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.App-page {
+  padding-left: 300px;
+  top: 0px;
+}
+
+.App-row {
+  flex-direction: row;
+  padding-right: 40px;
+  gap: 10px 20px;
+  align-items: center;
+  display: flex;
+}
