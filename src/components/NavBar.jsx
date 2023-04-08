@@ -12,7 +12,7 @@ const NavBar = () => {
                     <ul>
                         <li className="Menu-item">
                                 <i className="menu-icon tf-icons bx bx-home-circle"></i>
-                                <Link className="link" style={{ textDecoration: 'none' }} to="/home">
+                                <Link className="link" style={{ textDecoration: 'none' }} to="/">
                                     Home
                                 </Link>
                         
@@ -28,7 +28,7 @@ const NavBar = () => {
                         </li>
                         <li className="Menu-item">
                             <a className="menu-link" ><i class="menu-icon tf-icons bx bx-home-circle"></i>
-                                <Link className="link" style={{ textDecoration: 'none' }} to="/">
+                                <Link className="link" style={{ textDecoration: 'none' }} to="/gallery">
                                     Crewmate Gallery
                                 </Link>
                             </a>
@@ -36,7 +36,7 @@ const NavBar = () => {
                     </ul> 
                 </div>       
             </div>
-            <div className='App-page'>
+            <div className='App'>
                 <Outlet></Outlet>
             </div>
         </div>

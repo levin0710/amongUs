@@ -18,7 +18,7 @@ const App = () => {
       // READ all post from table
       const fetchPosts = async () => {
           const {data} = await supabase
-          .from('Posts')
+          .from('character')
           .select();
           // set state of posts
           setPosts(data)
@@ -33,11 +33,11 @@ const App = () => {
       element:<NavBar/>,
       children:[
         {
-          path:"/home",
+          index: true,
           element: <Home/>
         },
         {
-          path:"/edit/:id",
+          path:"gallery/edit/:id",
           element: <EditPost data={posts} />
         },
         {
@@ -45,7 +45,7 @@ const App = () => {
           element: <CreatePost />
         },
         {  
-          index: true,
+          path:"/gallery",
           element: <Gallery data={posts} />
         }
       ]

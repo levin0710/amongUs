@@ -1,12 +1,12 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+
+  font-family: Inter,Avenir,Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  line-height: 24px;
   font-weight: 400;
-
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  color: #ffffffde;
+  background-color: #92c2ff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -14,17 +14,73 @@
   -webkit-text-size-adjust: 100%;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+
+
+/* Set a background image or color */
+body {
+  background-color: #92c2ff; /* light blue */
+  background-image: url('poke-pattern.png'); /* optional */
+  background-repeat: repeat; /* optional */
 }
 
-h3 {
-  display: block;
-  font-size: 1.17em;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
+/* Style headers and titles */
+h1, h2 {
+  font-family: "Pokemon Solid", sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  color: #f00; /* red */
+}
+
+/* Style buttons */
+button, input[type="submit"] {
+  background-color: #f00; /* red */
+  border: none;
+  border-radius: 10px;
+  color: #fff; /* white */
+  cursor: pointer;
+  font-size: 1rem;
   font-weight: bold;
+  padding: 10px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+button:hover, input[type="submit"]:hover {
+  background-color: #c00; /* darker red */
+  box-shadow: 2px 2px 2px #555; /* optional */
+}
+
+/* Style input fields */
+input[type="text"] {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px #555; /* optional */
+  font-size: 1rem;
+  padding: 10px;
+}
+
+/* Style radio buttons */
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+/* Add icons or images */
+.icon {
+  background-image: url('poke-icon.png');
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+}
+
+/* Style links */
+a {
+  color: #00f; /* blue */
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #0080ff; /* darker blue */
+  text-decoration: underline;
 }

@@ -4,7 +4,8 @@ import { supabase } from '../client'
 
 
 const CreatePost = () => {
-    const [post, setPost] = useState({title: '', author: '', description: ''});
+    const options = ['Fire', 'Water', 'Grass', 'Electric', 'Ice', 'Rock', 'Ground', 'Flying', 'Psychic', 'Dark'];
+    const [post, setPost] = useState({name: '', type: '', level: ''});
 
     const handleChange = (e) => {
         const newPostForm = {}
@@ -18,31 +19,51 @@ const CreatePost = () => {
         event.preventDefault();
         console.log("CALLING POST")
         await supabase
-        .from('Posts')
-        .insert({title: post.title, author: post.author, description: post.description})
+        .from('character')
+        .insert({name: post.name, type: post.type, level: post.level})
         .select();
 
-        window.location = "/";
+        window.location = "/gallery";
     }
 
 
     return (
         <div>
-            <form onSubmit={createPost} >
-                <label for="title">Title</label> <br />
-                <input type="text" id="title" name="title" onChange={handleChange}/><br />
-                <br/>
-
-                <label for="author">Author</label><br />
-                <input type="text" id="author" name="author" onChange={handleChange}/><br />
-                <br/>
-
-                <label for="description">Description</label><br />
-                <textarea rows="5" cols="50" id="description" onChange={handleChange}>
-                </textarea>
-                <br/>
-                <input type="submit" value="Submit"/>
-            </form >
+            <form  onSubmit={createPost} >
+                    <div className='form-container'>
+                    <div className='mini-container'>
+                        <h3 for="name">Name</h3> <br />
+                        <input type="text" id="name" name="name" onChange={handleChange}/><br />
+                    </div>
+                    <br/>
+                    <div className='mini-container'>
+                        <h3 for="level">Level</h3><br />
+                        <input type="text" id="level" name="level" onChange={handleChange}/><br />
+                        
+                    </div>
+                    <br/>
+                    <div className='mini-container'>
+                        <h3 for="type">Type</h3><br />
+                        {options.map((option) => (
+                                <label className='radio-label' key={option}>
+                                    <input
+                                    type="radio"
+                                    id="type"
+                                    name='type'
+                                    value={option}
+                                    checked={post.type === option}
+                                    className='radio-button'
+                                    onChange={handleChange}
+                                    />
+                                    <span className="radio-text">{option}</span>
+                                </label>
+                        ))}
+                    </div>
+                    <br/> 
+                    </div>
+                    <input className='submit' type="submit" value="Submit"/> 
+                </form >
+                
         </div>
     )
 }

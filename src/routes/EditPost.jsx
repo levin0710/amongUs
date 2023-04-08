@@ -5,13 +5,13 @@ import { supabase } from '../client'
 
 
 const EditPost = ({data}) => {
-
+    const options = ['Fire', 'Water', 'Grass', 'Electric', 'Ice', 'Rock', 'Ground', 'Flying', 'Psychic', 'Dark'];
     const {id} = useParams();
-    const [post, setPost] = useState({id: null, title: "", author: "", description: ""});
+    const [post, setPost] = useState({id: null, name: "", type: "", level: ""});
 
     useEffect(() => {
         const result = data.filter(item => String(item.id) === id)[0];
-        setPost({title: result.title, author: result.author, description: result.description});
+        setPost({name: result.name, type: result.type, level: result.level});
     }, [data, id]);
 
     // DELETE post
@@ -19,11 +19,11 @@ const EditPost = ({data}) => {
         event.preventDefault();
 
         await supabase
-        .from('Posts')
+        .from('character')
         .delete()
         .eq('id', id); 
 
-        window.location = "http://localhost:3000/";
+        window.location = "/gallery";
     }
 
     const handleChange = (e) => {
@@ -39,31 +39,53 @@ const EditPost = ({data}) => {
         event.preventDefault();
 
         await supabase
-        .from('Posts')
-        .update({ title: post.title, author: post.author,  description: post.description})
+        .from('character')
+        .update({ name: post.name, type: post.type,  level: post.level})
         .eq('id', id);
 
-        window.location = "/";
+        window.location = "/gallery";
     }
 
     return (
         <div>
-            <form onSubmit={updatePost}>
-                <label for="title">Title</label> <br />
-                <input type="text" id="title" name="title" value={post.title} onChange={handleChange}/><br />
-                <br/>
-
-                <label for="author">Author</label><br />
-                <input type="text" id="author" name="author" value={post.author} onChange={handleChange}/><br />
-                <br/>
-
-                <label for="description">Description</label><br />
-                <textarea rows="5" cols="50" id="description" value={post.description} onChange={handleChange}>
-                </textarea>
-                <br/>
-                <input type="submit" value="Submit" />
-                <button className="deleteButton" onClick={deletePost}>Delete</button>
-            </form>
+                <form  onSubmit={updatePost} >
+                    <div className='form-container'>
+                    <div className='mini-container'>
+                        <h3 for="name">Name</h3> <br />
+                        <input type="text" id="name" name="name" onChange={handleChange}/><br />
+                    </div>
+                    <br/>
+                    <div className='mini-container'>
+                        <h3 for="level">Level</h3><br />
+                        <input type="text" id="level" name="level" onChange={handleChange}/><br />
+                        
+                    </div>
+                    <br/>
+                    <div className='mini-container'>
+                        <h3 for="type">Type</h3><br />
+                        {options.map((option) => (
+                                <label className='radio-label' key={option}>
+                                    <input
+                                    type="radio"
+                                    id="type"
+                                    name='type'
+                                    value={option}
+                                    checked={post.type === option}
+                                    className='radio-button'
+                                    onChange={handleChange}
+                                    />
+                                    <span className="radio-text">{option}</span>
+                                </label>
+                        ))}
+                    </div>
+                    <br/> 
+                    </div>
+                    <input className='submit' type="submit" value="Submit"/> 
+                    <button className="deleteButton" onClick={deletePost}>Delete</button>
+                </form >
+                
+                   
+            
         </div>
     )
 }
