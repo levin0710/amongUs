@@ -41,8 +41,9 @@ button, input[type="submit"] {
   font-size: 1rem;
   font-weight: bold;
   padding: 10px;
-  text-transform: uppercase;
   transition: all 0.3s ease;
+  width: 150px;
+  text-align: center;
 }
 
 button:hover, input[type="submit"]:hover {

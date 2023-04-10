@@ -9,6 +9,11 @@
     width: 300px;
     background: url('https://cdn.bulbagarden.net/upload/2/21/Pok%C3%A9_Ball.png') no-repeat center center;
     background-size: contain;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
 }
 
 .name {
@@ -40,6 +45,7 @@
     color: #fff;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    height: 65px;
 }
 
 .betButton:hover {
@@ -63,4 +69,9 @@
 
 .moreButton:hover {
     transform: rotate(45deg);
+}
+
+
+.pokeball {
+    max-width: 70%;
 }

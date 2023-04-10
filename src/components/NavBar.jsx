@@ -21,7 +21,7 @@ const NavBar = () => {
                             <a className="menu-link">
                                 <i className="menu-icon tf-icons bx bx-home-circle"></i>
                                 <Link className="link" style={{ textDecoration: 'none' }} to="/new">
-                                    Create a new Crewmate
+                                    Create Pokemon
                                 </Link>
             
                             </a>
@@ -29,7 +29,7 @@ const NavBar = () => {
                         <li className="Menu-item">
                             <a className="menu-link" ><i class="menu-icon tf-icons bx bx-home-circle"></i>
                                 <Link className="link" style={{ textDecoration: 'none' }} to="/gallery">
-                                    Crewmate Gallery
+                                    Pokemon Gallery
                                 </Link>
                             </a>
                         </li>

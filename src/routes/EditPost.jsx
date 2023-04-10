@@ -48,16 +48,17 @@ const EditPost = ({data}) => {
 
     return (
         <div>
+                <h2>Edit {post.name}!</h2>
                 <form  onSubmit={updatePost} >
                     <div className='form-container'>
                     <div className='mini-container'>
                         <h3 for="name">Name</h3> <br />
-                        <input type="text" id="name" name="name" onChange={handleChange}/><br />
+                        <input type="text" id="name" name="name" value={post.name} onChange={handleChange}/><br />
                     </div>
                     <br/>
                     <div className='mini-container'>
                         <h3 for="level">Level</h3><br />
-                        <input type="text" id="level" name="level" onChange={handleChange}/><br />
+                        <input type="text" id="level" name="level" value={post.level} onChange={handleChange}/><br />
                         
                     </div>
                     <br/>
@@ -80,8 +81,11 @@ const EditPost = ({data}) => {
                     </div>
                     <br/> 
                     </div>
-                    <input className='submit' type="submit" value="Submit"/> 
-                    <button className="deleteButton" onClick={deletePost}>Delete</button>
+                    <div className='buttons'>
+                        <input className='submit' type="submit" value="Submit"/> 
+                        <button className="deleteButton" onClick={deletePost}>Delete</button>
+                    </div>
+                    
                 </form >
                 
                    

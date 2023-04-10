@@ -29,6 +29,7 @@ const CreatePost = () => {
 
     return (
         <div>
+            <h2>Create a new Pokemon!</h2>
             <form  onSubmit={createPost} >
                     <div className='form-container'>
                     <div className='mini-container'>
